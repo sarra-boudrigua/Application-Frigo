@@ -7,7 +7,8 @@
     >
       <v-app-bar-title> Application Frigo <font-awesome-icon icon="fa-solid fa-snowflake" ></font-awesome-icon></v-app-bar-title>
 
-      <v-btn to="/PageFrigo">Home</v-btn>
+      <v-btn to="/">Home</v-btn>
+      <v-btn to="/PageFrigo">List</v-btn>
       <v-btn to="/PageAddElement">nouveau element</v-btn>
 
    </v-app-bar>

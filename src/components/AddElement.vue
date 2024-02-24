@@ -14,7 +14,10 @@
         <label for="image">Image URL:</label>
         <input type="text" id="image" v-model="photo" class="form-control" >
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="actions">
+        <button @click="redirect"  class="btn btn-secondary">Annuler</button>
+        <button type="submit"  class="btn btn-primary">Submit</button>
+      </div>
     </form>
   </div>
 </template>
@@ -56,6 +59,9 @@ const ajoutElement = (nom, qte, photo) => {
     })
     .catch( (error) => console.log(error));
 }
+function redirect(){
+  router.push('/PageFrigo');
+}
 
 </script>
 
@@ -84,9 +90,11 @@ h3{
   padding-top: 17px;
   text-align: center;
 }
-button{
+.actions {
   color: white;
-  margin-left: 379px;
-  margin-top: 31px;
+  margin-left: 367px;
+  margin-top: 28px;
+  display: flex;
+  justify-content: space-around;
 }
 </style>
