@@ -37,8 +37,7 @@
 import {onMounted, reactive, watch} from "vue";
 import Frigo from "@/Frigo";
 import router from "@/router";
-import store from "@/store";
-import Swal from "sweetalert2";
+import store from "@/storingElement";
 
 const listeElement = reactive([]);
 let props = defineProps(["pcritere"])
@@ -98,13 +97,6 @@ function Delete(id) {
     .then((dataJSON)=>{
       console.log(dataJSON);
       getElement();
-      Swal.fire({
-        position: "top-end",
-        icon: "warning",
-        title: "Element supprimé",
-        showConfirmButton: false,
-        timer: 1600
-      });
     })
     .catch( (error) => console.log(error));}
 

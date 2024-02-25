@@ -23,10 +23,9 @@
 </template>
 
 <script setup>
-import store from "@/store";
+import store from "@/storingElement";
 import {ref} from "vue";
 import {useRouter} from "vue-router";
-import Swal from "sweetalert2";
 const url = "https://webmmi.iut-tlse3.fr/~pecatte/frigo/public/7/produits";
 
 const selectedElement = store.state.selectedElement;
@@ -36,6 +35,10 @@ const qte = ref(selectedElement.qte);
 const photo = ref(selectedElement.photo);
 const router = useRouter();
 function UpdateElement() {
+  if (qte.value < 0) {
+    window.alert("La quantité ne peut pas être négative.");
+    return;
+  }
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   const fetchOptions = {
@@ -52,13 +55,7 @@ function UpdateElement() {
       const updatedElement = dataJSON;
       store.dispatch('setSelectedElement', updatedElement);
       router.push('/pageFrigo');
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Element modifié",
-        showConfirmButton: false,
-        timer: 1600
-      });
+      window.alert("Element modifié")
       })
     .catch( (error) => console.log(error));
 }

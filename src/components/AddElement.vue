@@ -28,7 +28,6 @@ import {useRouter} from "vue-router";
 
 const url = "https://webmmi.iut-tlse3.fr/~pecatte/frigo/public/7/produits";
 import { ref } from 'vue';
-import Swal from "sweetalert2";
 
 const nom = ref('');
 const qte = ref('');
@@ -49,13 +48,6 @@ const ajoutElement = (nom, qte, photo) => {
     .then((dataJSON)=>{
       console.log(dataJSON);
       router.push('/pageFrigo');
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Element ajouté",
-        showConfirmButton: false,
-        timer: 1600
-      });
     })
     .catch( (error) => console.log(error));
 }
