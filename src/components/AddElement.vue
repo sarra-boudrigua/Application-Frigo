@@ -8,7 +8,7 @@
       </div>
       <div class="form-group">
         <label for="qte">Quantité:</label>
-        <input type="number" id="qte" v-model="qte" required  class="form-control">
+        <input type="number" id="qte" v-model="qte" required min="0"  class="form-control">
       </div>
       <div class="form-group">
         <label for="image">Image URL:</label>
